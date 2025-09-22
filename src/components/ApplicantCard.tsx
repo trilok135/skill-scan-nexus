@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { 
   FileText, 
   FileImage, 
@@ -162,9 +163,11 @@ export function ApplicantCard({ applicant }: ApplicantCardProps) {
             <Clock className="h-3 w-3" />
             {new Date(applicant.submittedAt).toLocaleDateString()}
           </div>
-          <Button size="sm" variant="outline" className="h-7 text-xs">
-            <Eye className="h-3 w-3 mr-1" />
-            Review
+          <Button size="sm" variant="outline" className="h-7 text-xs" asChild>
+            <Link to={`/candidate/${applicant.id}`}>
+              <Eye className="h-3 w-3 mr-1" />
+              Review
+            </Link>
           </Button>
         </div>
       </CardContent>
