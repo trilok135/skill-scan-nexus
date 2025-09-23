@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { DashboardStats } from "@/components/DashboardStats";
 import { ApplicantCard } from "@/components/ApplicantCard";
 import { FileUploadZone } from "@/components/FileUploadZone";
+import { FileScoreShowcase } from "@/components/FileScoreShowcase";
 import { RecentActivity } from "@/components/RecentActivity";
 import { HiringFunnel } from "@/components/HiringFunnel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,6 +21,15 @@ import {
 import { mockApplicants, applicationSourcesData } from "@/data/mockData";
 
 const Index = () => {
+  const [uploadedFiles, setUploadedFiles] = useState<Array<{
+    id: string;
+    name: string;
+    size: number;
+    type: string;
+    status: string;
+    progress?: number;
+  }>>([]);
+
   const recentApplicants = mockApplicants.slice(0, 6);
   const flaggedApplicants = mockApplicants.filter(a => a.flags.length > 0).length;
   const highScoreApplicants = mockApplicants.filter(a => a.authenticityScore >= 80).length;
@@ -61,7 +72,7 @@ const Index = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <FileUploadZone />
+                <FileUploadZone onFilesChange={setUploadedFiles} />
               </CardContent>
             </Card>
 
@@ -165,6 +176,9 @@ const Index = () => {
             <RecentActivity />
           </div>
         </div>
+
+        {/* File Score Showcase */}
+        <FileScoreShowcase uploadedFiles={uploadedFiles} />
 
         {/* Hiring Funnel */}
         <div className="grid gap-6 md:grid-cols-2">

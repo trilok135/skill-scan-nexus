@@ -22,6 +22,10 @@ interface UploadedFile {
   progress?: number;
 }
 
+interface FileUploadZoneProps {
+  onFilesChange?: (files: UploadedFile[]) => void;
+}
+
 const acceptedTypes = {
   'application/pdf': { icon: FileText, label: 'PDF', color: 'text-danger' },
   'application/vnd.openxmlformats-officedocument.wordprocessingml.document': { icon: File, label: 'DOCX', color: 'text-primary' },
@@ -29,7 +33,7 @@ const acceptedTypes = {
   'text/plain': { icon: FileText, label: 'TXT', color: 'text-muted-foreground' },
 };
 
-export function FileUploadZone() {
+export function FileUploadZone({ onFilesChange }: FileUploadZoneProps = {}) {
   const [isDragOver, setIsDragOver] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const { toast } = useToast();
@@ -81,29 +85,41 @@ export function FileUploadZone() {
         progress: 0,
       };
 
-      setUploadedFiles(prev => [...prev, newFile]);
+      setUploadedFiles(prev => {
+        const updated = [...prev, newFile];
+        onFilesChange?.(updated);
+        return updated;
+      });
 
       // Simulate upload progress
       const interval = setInterval(() => {
-        setUploadedFiles(prev => prev.map(f => {
-          if (f.id === fileId) {
-            const newProgress = (f.progress || 0) + Math.random() * 20;
-            if (newProgress >= 100) {
-              clearInterval(interval);
-              return { ...f, status: 'success', progress: 100 };
+        setUploadedFiles(prev => {
+          const updated = prev.map(f => {
+            if (f.id === fileId) {
+              const newProgress = (f.progress || 0) + Math.random() * 20;
+              if (newProgress >= 100) {
+                clearInterval(interval);
+                return { ...f, status: 'success' as const, progress: 100 };
+              }
+              return { ...f, progress: newProgress };
             }
-            return { ...f, progress: newProgress };
-          }
-          return f;
-        }));
+            return f;
+          });
+          onFilesChange?.(updated);
+          return updated;
+        });
       }, 200);
 
       // Complete upload after 2-3 seconds
       setTimeout(() => {
         clearInterval(interval);
-        setUploadedFiles(prev => prev.map(f => 
-          f.id === fileId ? { ...f, status: 'success', progress: 100 } : f
-        ));
+        setUploadedFiles(prev => {
+          const updated = prev.map(f => 
+            f.id === fileId ? { ...f, status: 'success' as const, progress: 100 } : f
+          );
+          onFilesChange?.(updated);
+          return updated;
+        });
         
         toast({
           title: "File uploaded successfully",
@@ -128,8 +144,12 @@ export function FileUploadZone() {
   }, [processFiles]);
 
   const removeFile = useCallback((fileId: string) => {
-    setUploadedFiles(prev => prev.filter(f => f.id !== fileId));
-  }, []);
+    setUploadedFiles(prev => {
+      const updated = prev.filter(f => f.id !== fileId);
+      onFilesChange?.(updated);
+      return updated;
+    });
+  }, [onFilesChange]);
 
   const formatFileSize = (bytes: number) => {
     if (bytes === 0) return '0 Bytes';
