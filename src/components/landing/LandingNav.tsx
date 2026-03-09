@@ -1,9 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SkillMatchLogo } from "@/components/SkillMatchLogo";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -17,16 +16,15 @@ export function LandingNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
+      <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <SkillMatchLogo size="md" />
+            <SkillMatchLogo size="sm" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -36,67 +34,51 @@ export function LandingNav() {
                 {item.name}
               </a>
             ))}
-          </div>
+          </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Link to="/login">
-              <Button variant="ghost" size="sm" className="font-semibold">
-                Login
-              </Button>
+              <Button variant="ghost" className="font-semibold">Login</Button>
             </Link>
             <Link to="/register">
-              <Button variant="hero" size="sm">
-                Get Started
-              </Button>
+              <Button variant="hero" size="sm" className="font-bold">Get Started</Button>
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors"
+            className="md:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5 text-foreground" />
-            ) : (
-              <Menu className="h-5 w-5 text-foreground" />
-            )}
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-300",
-            mobileMenuOpen ? "max-h-96 pb-4" : "max-h-0"
-          )}
-        >
-          <div className="flex flex-col gap-2 pt-4">
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 space-y-3 border-t border-border">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 text-sm font-semibold text-muted-foreground hover:text-primary hover:bg-accent rounded-lg transition-colors"
+                className="block px-2 py-2 text-sm font-semibold text-muted-foreground hover:text-primary"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
-            <div className="flex flex-col gap-2 pt-4 border-t border-border">
+            <div className="flex flex-col gap-2 pt-2">
               <Link to="/login">
-                <Button variant="outline" className="w-full font-semibold">
-                  Login
-                </Button>
+                <Button variant="ghost" className="w-full font-semibold">Login</Button>
               </Link>
               <Link to="/register">
-                <Button variant="hero" className="w-full">
-                  Get Started
-                </Button>
+                <Button variant="hero" className="w-full font-bold">Get Started</Button>
               </Link>
             </div>
           </div>
-        </div>
+        )}
       </div>
-    </nav>
+    </header>
   );
 }

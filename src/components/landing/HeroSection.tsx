@@ -1,31 +1,27 @@
+import { ArrowRight, Play, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroIllustration from "@/assets/hero-illustration.png";
 
+const floatingCards = [
+  { label: "Accuracy", value: "95%", sub: "Hiring match", delay: 0 },
+  { label: "Skills", value: "200+", sub: "Analyzed", delay: 0.4 },
+];
+
 export function HeroSection() {
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden">
-      {/* Subtle geometric background */}
-      <div className="absolute inset-0 geometric-pattern" />
-      <div className="absolute inset-0 bg-gradient-to-b from-accent/60 via-background to-background" />
-
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 70/30 asymmetric layout */}
+    <section className="relative py-24 md:py-32 overflow-hidden bg-background">
+      <div className="absolute inset-0 geometric-pattern opacity-60" />
+      <div className="container mx-auto px-4 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left content — 7 columns */}
-          <div className="lg:col-span-7 space-y-8 animate-slide-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent border border-primary/10">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              <span className="text-xs font-bold uppercase tracking-wider text-accent-foreground">
-                AI-Powered Placement Readiness
-              </span>
+          {/* Left — 70% text */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold border border-border">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              AI-POWERED PLACEMENT READINESS
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-foreground leading-[1.05] tracking-tight">
               Smart, Skill-Based{" "}
               <span className="text-primary">Recruitment</span>{" "}
               with AI
@@ -64,57 +60,49 @@ export function HeroSection() {
             {/* Social proof */}
             <div className="flex items-center gap-4 pt-4">
               <div className="flex -space-x-3">
-                {["JD", "ES", "ML", "SJ"].map((initials, i) => (
+                {["JD", "ES", "ML", "SJ"].map((initials) => (
                   <div
                     key={initials}
-                    className="h-10 w-10 rounded-full border-2 border-card bg-primary flex items-center justify-center text-xs font-bold text-primary-foreground"
-                    style={{ zIndex: 4 - i }}
+                    className="h-10 w-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold border-2 border-background"
                   >
                     {initials}
                   </div>
                 ))}
               </div>
-              <div className="text-sm">
-                <p className="font-bold text-foreground">3,500+ candidates matched</p>
-                <p className="text-muted-foreground">Join thousands of users</p>
+              <div>
+                <p className="text-sm font-bold text-foreground">3,500+ candidates matched</p>
+                <p className="text-xs text-muted-foreground">Join thousands of users</p>
               </div>
             </div>
           </div>
 
-          {/* Right illustration — 5 columns */}
-          <div className="lg:col-span-5 relative animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
-              <img
-                src={heroIllustration}
-                alt="AI-powered recruitment dashboard with professionals analyzing data"
-                className="w-full h-auto"
-              />
+          {/* Right — 30% illustration */}
+          <div className="lg:col-span-5 relative">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-border">
+              <img src={heroIllustration} alt="SkillMatch AI Dashboard" className="w-full" />
             </div>
 
             {/* Floating cards */}
-            <div className="absolute -left-6 top-1/4 p-4 rounded-xl bg-card card-shadow-hover border border-border animate-float">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-lg bg-metric-green/10 flex items-center justify-center">
-                  <span className="text-metric-green text-xl font-extrabold">95%</span>
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-foreground">Accuracy</p>
-                  <p className="text-xs text-muted-foreground">Hiring match</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -right-4 bottom-1/4 p-4 rounded-xl bg-card card-shadow-hover border border-border animate-float" style={{ animationDelay: "1s" }}>
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary text-xl font-extrabold">200+</span>
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-foreground">Skills</p>
-                  <p className="text-xs text-muted-foreground">Analyzed</p>
+            {floatingCards.map((card) => (
+              <div
+                key={card.label}
+                className="absolute bg-card rounded-xl p-4 card-shadow-hover border border-border animate-float"
+                style={{
+                  animationDelay: `${card.delay}s`,
+                  ...(card.delay === 0
+                    ? { top: "10%", left: "-20%" }
+                    : { bottom: "15%", right: "-10%" }),
+                }}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl font-extrabold text-primary">{card.value}</span>
+                  <div>
+                    <p className="text-sm font-bold text-foreground">{card.label}</p>
+                    <p className="text-xs text-muted-foreground">{card.sub}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

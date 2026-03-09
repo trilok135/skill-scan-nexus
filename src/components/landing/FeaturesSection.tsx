@@ -65,58 +65,47 @@ const borderColors = {
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-24 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-xs font-bold uppercase tracking-wider text-accent-foreground mb-4">
-            Features
+    <section className="py-24 bg-accent/30">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-sm font-semibold border border-border mb-4">
+            FEATURES
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight mb-4">
             Why Choose SkillMatch AI?
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Our platform combines cutting-edge AI technology with intuitive design to revolutionize
             how talent meets opportunity.
           </p>
         </div>
 
-        {/* Features grid — hero card spans 2 columns */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <div
               key={feature.title}
               className={cn(
-                "group p-6 rounded-2xl bg-card card-shadow hover:card-shadow-hover",
-                "border border-transparent hover:border-primary/10",
+                "group rounded-xl bg-card p-6 card-shadow hover:card-shadow-hover transition-all duration-300",
                 "border-l-4",
                 borderColors[feature.color as keyof typeof borderColors],
-                "transition-all duration-300 animate-scale-in",
                 feature.isHero && "md:col-span-2 lg:col-span-2"
               )}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div
-                className={cn(
-                  "w-12 h-12 rounded-xl flex items-center justify-center mb-5",
-                  feature.isHero && "w-14 h-14",
-                  iconColors[feature.color as keyof typeof iconColors]
-                )}
-              >
-                <feature.icon className={cn("h-6 w-6", feature.isHero && "h-7 w-7")} />
+              <div className={cn("p-3 rounded-xl inline-flex mb-4", iconColors[feature.color as keyof typeof iconColors])}>
+                <feature.icon className={cn("h-6 w-6", feature.isHero && "h-8 w-8")} />
               </div>
-              <h3 className={cn(
-                "font-bold text-foreground mb-2 group-hover:text-primary transition-colors",
-                feature.isHero ? "text-xl" : "text-lg"
-              )}>
+              <h3 className={cn("font-bold text-foreground mb-2", feature.isHero ? "text-2xl" : "text-lg")}>
                 {feature.title}
               </h3>
-              <p className={cn(
-                "text-muted-foreground leading-relaxed",
-                feature.isHero ? "text-base" : "text-sm"
-              )}>
+              <p className={cn("text-muted-foreground", feature.isHero ? "text-base" : "text-sm")}>
                 {feature.description}
               </p>
+              {feature.tech && (
+                <span className="inline-block mt-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-accent text-muted-foreground">
+                  {feature.tech}
+                </span>
+              )}
             </div>
           ))}
         </div>
