@@ -5,15 +5,21 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
     port: 8080,
-    hmr: {
-      overlay: false,
-    },
+    strictPort: false,   // allows fallback to 8081 if 8080 is taken
     proxy: {
-      "/api": {
-        target: "http://localhost:3001",
+      '/api': {
+        target: 'http://localhost:8000',
         changeOrigin: true,
+        secure: false,
+        configure: (proxy) => {
+          proxy.on('error', (err: any) => {
+            if (err.code !== 'ECONNREFUSED') {
+              console.error('[proxy error]', err.message);
+            }
+            // ECONNREFUSED is silenced — backend may still be starting
+          });
+        },
       },
     },
   },
