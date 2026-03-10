@@ -1,0 +1,85 @@
+{
+    "name": "Trilok KR",
+    "email": "trilokrajakeerthi@gmail.com",
+    "phone": "9345410776",
+    "location": "Chennai, India",
+    "title": "Backend Developer",
+    "summary": "Backend Developer proficient in Python, currently pursuing a B.E. in Computer Science and Engineering with a focus on AI and Machine Learning. With a CGPA of 8.73, committed to writing clean, scalable code. Actively developing SkillMatch AI, an innovative platform for skill matching and employability insights.",
+    "resume_text": "TRILOK KR | Backend Developer | 9345410776 | trilokrajakeerthi@gmail.com | Chennai, India\n\nSummary: Backend Developer proficient in Python, currently pursuing a B.E. in Computer Science and Engineering with a focus on AI and Machine Learning. CGPA of 8.73. Actively developing SkillMatch AI.\n\nExperience:\nOneYes InfoTech Solutions, Chennai — App Developer Intern (10/2025 - 01/2026)\n- Built reusable UI components using Flutter and Dart\n- Converted UI/UX design prototypes into responsive mobile screens\n- Collaborated with designers and developers to integrate UI components with application logic\n- Improved usability by applying interface design principles\n\nEducation:\nSri Sai Ram Institute of Technology (Sairam Group of Institutions), Chennai, India\nBE - Computer Science (AI and Machine Learning) | 2024 - 2028\n\nSkills: Python, Data Structures, Flutter, Dart, Interface Design, GitHub, Machine Learning\nTraining: Python Programming, Data Structures, Machine Learning Fundamentals\nProjects: SkillMatch AI — AI-driven platform for skill matching and employability insights",
+    "education": [
+        {
+            "institution": "Sri Sai Ram Institute of Technology",
+            "degree": "BE - Computer Science (AI and Machine Learning)",
+            "year": "2024 - 2028",
+            "gpa": "8.73"
+        }
+    ],
+    "experience": [
+        {
+            "company": "OneYes InfoTech Solutions",
+            "title": "App Developer Intern",
+            "duration": "10/2025 - 01/2026",
+            "location": "Chennai",
+            "highlights": [
+                "Built reusable UI components using Flutter and Dart",
+                "Converted UI/UX design prototypes into responsive mobile screens",
+                "Collaborated with designers to integrate UI components with app logic",
+                "Applied interface design principles to improve usability"
+            ]
+        }
+    ],
+    "extracted_skills": [
+        {
+            "skill_name": "Python",
+            "proficiency": "advanced",
+            "source": "resume"
+        },
+        {
+            "skill_name": "Backend Development",
+            "proficiency": "advanced",
+            "source": "resume"
+        },
+        {
+            "skill_name": "Data Structures",
+            "proficiency": "intermediate",
+            "source": "resume"
+        },
+        {
+            "skill_name": "Machine Learning",
+            "proficiency": "beginner",
+            "source": "resume"
+        },
+        {
+            "skill_name": "Flutter",
+            "proficiency": "intermediate",
+            "source": "resume"
+        },
+        {
+            "skill_name": "Dart",
+            "proficiency": "intermediate",
+            "source": "resume"
+        },
+        {
+            "skill_name": "Interface Design",
+            "proficiency": "intermediate",
+            "source": "resume"
+        },
+        {
+            "skill_name": "GitHub",
+            "proficiency": "intermediate",
+            "source": "resume"
+        }
+    ],
+    "projects": [
+        {
+            "name": "SkillMatch AI",
+            "description": "AI-driven platform for skill matching and employability insights. Focused on backend development, data pipelines, and model integration.",
+            "technologies": [
+                "Python",
+                "FastAPI",
+                "Machine Learning",
+                "React"
+            ]
+        }
+    ]
+}

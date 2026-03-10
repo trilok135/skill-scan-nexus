@@ -1,0 +1,296 @@
+[
+  {
+    "title": "Data Scientist",
+    "category": "Data Science",
+    "description": "Analyze complex datasets, build predictive models, and communicate insights to drive business decisions.",
+    "avg_salary": "$95,000 - $135,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Python", "importance": "must_have"},
+      {"skill_name": "Machine Learning", "importance": "must_have"},
+      {"skill_name": "Pandas", "importance": "must_have"},
+      {"skill_name": "SQL", "importance": "must_have"},
+      {"skill_name": "Statistics", "importance": "must_have"},
+      {"skill_name": "Data Visualization", "importance": "must_have"},
+      {"skill_name": "scikit-learn", "importance": "must_have"},
+      {"skill_name": "Deep Learning", "importance": "nice_to_have"},
+      {"skill_name": "TensorFlow", "importance": "nice_to_have"},
+      {"skill_name": "NumPy", "importance": "nice_to_have"},
+      {"skill_name": "Jupyter", "importance": "nice_to_have"},
+      {"skill_name": "Feature Engineering", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "category": "Data Science",
+    "description": "Design, build, and deploy machine learning models and AI systems at scale in production environments.",
+    "avg_salary": "$110,000 - $160,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Python", "importance": "must_have"},
+      {"skill_name": "Machine Learning", "importance": "must_have"},
+      {"skill_name": "Deep Learning", "importance": "must_have"},
+      {"skill_name": "TensorFlow", "importance": "must_have"},
+      {"skill_name": "PyTorch", "importance": "must_have"},
+      {"skill_name": "MLOps", "importance": "must_have"},
+      {"skill_name": "Docker", "importance": "must_have"},
+      {"skill_name": "scikit-learn", "importance": "nice_to_have"},
+      {"skill_name": "Kubernetes", "importance": "nice_to_have"},
+      {"skill_name": "SQL", "importance": "nice_to_have"},
+      {"skill_name": "Git", "importance": "nice_to_have"},
+      {"skill_name": "AWS", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Backend Developer",
+    "category": "Web Development",
+    "description": "Build robust server-side applications, APIs, and microservices that power web and mobile products.",
+    "avg_salary": "$80,000 - $120,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Python", "importance": "must_have"},
+      {"skill_name": "Node.js", "importance": "must_have"},
+      {"skill_name": "REST API", "importance": "must_have"},
+      {"skill_name": "SQL", "importance": "must_have"},
+      {"skill_name": "PostgreSQL", "importance": "must_have"},
+      {"skill_name": "Docker", "importance": "must_have"},
+      {"skill_name": "Git", "importance": "must_have"},
+      {"skill_name": "Django", "importance": "nice_to_have"},
+      {"skill_name": "FastAPI", "importance": "nice_to_have"},
+      {"skill_name": "Redis", "importance": "nice_to_have"},
+      {"skill_name": "AWS", "importance": "nice_to_have"},
+      {"skill_name": "Microservices", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Web Development",
+    "description": "Build responsive, performant user interfaces and web applications with modern JavaScript frameworks.",
+    "avg_salary": "$75,000 - $115,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "React", "importance": "must_have"},
+      {"skill_name": "JavaScript", "importance": "must_have"},
+      {"skill_name": "TypeScript", "importance": "must_have"},
+      {"skill_name": "HTML5", "importance": "must_have"},
+      {"skill_name": "CSS3", "importance": "must_have"},
+      {"skill_name": "Git", "importance": "must_have"},
+      {"skill_name": "REST API", "importance": "must_have"},
+      {"skill_name": "Next.js", "importance": "nice_to_have"},
+      {"skill_name": "Redux", "importance": "nice_to_have"},
+      {"skill_name": "Tailwind CSS", "importance": "nice_to_have"},
+      {"skill_name": "Jest", "importance": "nice_to_have"},
+      {"skill_name": "Webpack", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Full Stack Developer",
+    "category": "Web Development",
+    "description": "Design and implement end-to-end web solutions covering both frontend UI and backend services.",
+    "avg_salary": "$85,000 - $130,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "React", "importance": "must_have"},
+      {"skill_name": "Node.js", "importance": "must_have"},
+      {"skill_name": "JavaScript", "importance": "must_have"},
+      {"skill_name": "TypeScript", "importance": "must_have"},
+      {"skill_name": "SQL", "importance": "must_have"},
+      {"skill_name": "REST API", "importance": "must_have"},
+      {"skill_name": "Git", "importance": "must_have"},
+      {"skill_name": "Docker", "importance": "nice_to_have"},
+      {"skill_name": "PostgreSQL", "importance": "nice_to_have"},
+      {"skill_name": "MongoDB", "importance": "nice_to_have"},
+      {"skill_name": "AWS", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "DevOps Engineer",
+    "category": "Cloud & DevOps",
+    "description": "Build and maintain CI/CD pipelines, infrastructure, and deployment processes for scalable systems.",
+    "avg_salary": "$90,000 - $140,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Docker", "importance": "must_have"},
+      {"skill_name": "Kubernetes", "importance": "must_have"},
+      {"skill_name": "CI/CD", "importance": "must_have"},
+      {"skill_name": "Linux", "importance": "must_have"},
+      {"skill_name": "AWS", "importance": "must_have"},
+      {"skill_name": "Terraform", "importance": "must_have"},
+      {"skill_name": "Git", "importance": "must_have"},
+      {"skill_name": "Jenkins", "importance": "nice_to_have"},
+      {"skill_name": "GitHub Actions", "importance": "nice_to_have"},
+      {"skill_name": "Prometheus", "importance": "nice_to_have"},
+      {"skill_name": "Ansible", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Data Analyst",
+    "category": "Data Science",
+    "description": "Extract, analyze, and visualize data to generate actionable business insights and reports.",
+    "avg_salary": "$65,000 - $95,000",
+    "industry": "Business",
+    "required_skills": [
+      {"skill_name": "SQL", "importance": "must_have"},
+      {"skill_name": "Python", "importance": "must_have"},
+      {"skill_name": "Excel", "importance": "must_have"},
+      {"skill_name": "Data Visualization", "importance": "must_have"},
+      {"skill_name": "Statistics", "importance": "must_have"},
+      {"skill_name": "Tableau", "importance": "nice_to_have"},
+      {"skill_name": "Power BI", "importance": "nice_to_have"},
+      {"skill_name": "Pandas", "importance": "nice_to_have"},
+      {"skill_name": "Google Analytics", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Cloud Architect",
+    "category": "Cloud & DevOps",
+    "description": "Design and oversee cloud infrastructure strategy, migration, and architecture best practices.",
+    "avg_salary": "$130,000 - $180,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "AWS", "importance": "must_have"},
+      {"skill_name": "Azure", "importance": "must_have"},
+      {"skill_name": "GCP", "importance": "must_have"},
+      {"skill_name": "Terraform", "importance": "must_have"},
+      {"skill_name": "Docker", "importance": "must_have"},
+      {"skill_name": "Kubernetes", "importance": "must_have"},
+      {"skill_name": "Microservices", "importance": "must_have"},
+      {"skill_name": "CI/CD", "importance": "nice_to_have"},
+      {"skill_name": "Serverless", "importance": "nice_to_have"},
+      {"skill_name": "Linux", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Cybersecurity Analyst",
+    "category": "Security",
+    "description": "Monitor, detect, and respond to security threats to protect organizational assets and data.",
+    "avg_salary": "$85,000 - $130,000",
+    "industry": "Security",
+    "required_skills": [
+      {"skill_name": "Cybersecurity", "importance": "must_have"},
+      {"skill_name": "Network Security", "importance": "must_have"},
+      {"skill_name": "OWASP", "importance": "must_have"},
+      {"skill_name": "Linux", "importance": "must_have"},
+      {"skill_name": "SIEM", "importance": "must_have"},
+      {"skill_name": "Vulnerability Assessment", "importance": "must_have"},
+      {"skill_name": "Ethical Hacking", "importance": "nice_to_have"},
+      {"skill_name": "Penetration Testing", "importance": "nice_to_have"},
+      {"skill_name": "Cryptography", "importance": "nice_to_have"},
+      {"skill_name": "Incident Response", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Product Manager",
+    "category": "Product",
+    "description": "Define product vision, roadmap, and work cross-functionally to deliver features that users love.",
+    "avg_salary": "$95,000 - $150,000",
+    "industry": "Business",
+    "required_skills": [
+      {"skill_name": "Product Management", "importance": "must_have"},
+      {"skill_name": "Agile", "importance": "must_have"},
+      {"skill_name": "Jira", "importance": "must_have"},
+      {"skill_name": "Business Analysis", "importance": "must_have"},
+      {"skill_name": "Stakeholder Management", "importance": "must_have"},
+      {"skill_name": "Data Analytics", "importance": "must_have"},
+      {"skill_name": "Scrum", "importance": "nice_to_have"},
+      {"skill_name": "SQL", "importance": "nice_to_have"},
+      {"skill_name": "Figma", "importance": "nice_to_have"},
+      {"skill_name": "A/B Testing", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "UI/UX Designer",
+    "category": "Design",
+    "description": "Create beautiful, user-centred designs using research insights, wireframes, and interactive prototypes.",
+    "avg_salary": "$70,000 - $110,000",
+    "industry": "Design",
+    "required_skills": [
+      {"skill_name": "Figma", "importance": "must_have"},
+      {"skill_name": "UX Design", "importance": "must_have"},
+      {"skill_name": "UI Design", "importance": "must_have"},
+      {"skill_name": "User Research", "importance": "must_have"},
+      {"skill_name": "Wireframing", "importance": "must_have"},
+      {"skill_name": "Prototyping", "importance": "must_have"},
+      {"skill_name": "Design Systems", "importance": "nice_to_have"},
+      {"skill_name": "Adobe XD", "importance": "nice_to_have"},
+      {"skill_name": "Usability Testing", "importance": "nice_to_have"},
+      {"skill_name": "CSS3", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Android Developer",
+    "category": "Mobile Development",
+    "description": "Build native Android applications using Kotlin/Java, following Material Design principles.",
+    "avg_salary": "$80,000 - $125,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Android", "importance": "must_have"},
+      {"skill_name": "Kotlin", "importance": "must_have"},
+      {"skill_name": "Java", "importance": "must_have"},
+      {"skill_name": "Jetpack Compose", "importance": "must_have"},
+      {"skill_name": "SQL", "importance": "must_have"},
+      {"skill_name": "REST API", "importance": "must_have"},
+      {"skill_name": "Git", "importance": "must_have"},
+      {"skill_name": "Firebase", "importance": "nice_to_have"},
+      {"skill_name": "Unit Testing", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Data Engineer",
+    "category": "Data Engineering",
+    "description": "Build and maintain data pipelines, warehouses, and infrastructure for large-scale data processing.",
+    "avg_salary": "$100,000 - $145,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Python", "importance": "must_have"},
+      {"skill_name": "SQL", "importance": "must_have"},
+      {"skill_name": "Apache Spark", "importance": "must_have"},
+      {"skill_name": "Apache Kafka", "importance": "must_have"},
+      {"skill_name": "ETL", "importance": "must_have"},
+      {"skill_name": "Data Pipeline", "importance": "must_have"},
+      {"skill_name": "Docker", "importance": "must_have"},
+      {"skill_name": "Apache Airflow", "importance": "nice_to_have"},
+      {"skill_name": "dbt", "importance": "nice_to_have"},
+      {"skill_name": "Snowflake", "importance": "nice_to_have"},
+      {"skill_name": "BigQuery", "importance": "nice_to_have"},
+      {"skill_name": "AWS", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "Flutter Developer",
+    "category": "Mobile Development",
+    "description": "Build cross-platform mobile apps for iOS and Android using Flutter and Dart.",
+    "avg_salary": "$75,000 - $115,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Flutter", "importance": "must_have"},
+      {"skill_name": "Dart", "importance": "must_have"},
+      {"skill_name": "REST API", "importance": "must_have"},
+      {"skill_name": "Git", "importance": "must_have"},
+      {"skill_name": "Firebase", "importance": "must_have"},
+      {"skill_name": "Android", "importance": "nice_to_have"},
+      {"skill_name": "iOS", "importance": "nice_to_have"},
+      {"skill_name": "SQL", "importance": "nice_to_have"}
+    ]
+  },
+  {
+    "title": "NLP / AI Engineer",
+    "category": "Data Science",
+    "description": "Build and deploy NLP systems, conversational AI, and text analytics solutions.",
+    "avg_salary": "$115,000 - $165,000",
+    "industry": "Technology",
+    "required_skills": [
+      {"skill_name": "Python", "importance": "must_have"},
+      {"skill_name": "Natural Language Processing", "importance": "must_have"},
+      {"skill_name": "Machine Learning", "importance": "must_have"},
+      {"skill_name": "Deep Learning", "importance": "must_have"},
+      {"skill_name": "PyTorch", "importance": "must_have"},
+      {"skill_name": "Transformers", "importance": "must_have"},
+      {"skill_name": "Hugging Face", "importance": "must_have"},
+      {"skill_name": "Large Language Models", "importance": "nice_to_have"},
+      {"skill_name": "MLOps", "importance": "nice_to_have"},
+      {"skill_name": "Docker", "importance": "nice_to_have"},
+      {"skill_name": "AWS", "importance": "nice_to_have"}
+    ]
+  }
+]

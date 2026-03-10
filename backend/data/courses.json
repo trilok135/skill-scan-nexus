@@ -1,0 +1,676 @@
+[
+    {
+        "title": "Python for Everybody",
+        "provider": "Coursera (University of Michigan)",
+        "url": "https://www.coursera.org/specializations/python",
+        "skills_covered": [
+            "Python",
+            "SQL",
+            "Data Analysis"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 30
+    },
+    {
+        "title": "Machine Learning Specialization",
+        "provider": "Coursera (DeepLearning.AI)",
+        "url": "https://www.coursera.org/specializations/machine-learning-introduction",
+        "skills_covered": [
+            "Machine Learning",
+            "scikit-learn",
+            "TensorFlow",
+            "Python",
+            "Statistics"
+        ],
+        "course_type": "free",
+        "rating": 4.9,
+        "duration_hours": 90
+    },
+    {
+        "title": "Deep Learning Specialization",
+        "provider": "Coursera (DeepLearning.AI)",
+        "url": "https://www.coursera.org/specializations/deep-learning",
+        "skills_covered": [
+            "Deep Learning",
+            "TensorFlow",
+            "Neural Networks",
+            "CNN",
+            "RNN",
+            "Python"
+        ],
+        "course_type": "free",
+        "rating": 4.9,
+        "duration_hours": 120
+    },
+    {
+        "title": "SQL for Data Science",
+        "provider": "Coursera (UC Davis)",
+        "url": "https://www.coursera.org/learn/sql-for-data-science",
+        "skills_covered": [
+            "SQL",
+            "Data Analysis"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 18
+    },
+    {
+        "title": "Data Analysis with Python",
+        "provider": "freeCodeCamp",
+        "url": "https://www.freecodecamp.org/learn/data-analysis-with-python/",
+        "skills_covered": [
+            "Python",
+            "Pandas",
+            "NumPy",
+            "Data Analysis",
+            "Data Visualization",
+            "Matplotlib"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 40
+    },
+    {
+        "title": "JavaScript Algorithms and Data Structures",
+        "provider": "freeCodeCamp",
+        "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+        "skills_covered": [
+            "JavaScript"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 60
+    },
+    {
+        "title": "Responsive Web Design",
+        "provider": "freeCodeCamp",
+        "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+        "skills_covered": [
+            "HTML5",
+            "CSS3"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 40
+    },
+    {
+        "title": "React - The Complete Guide",
+        "provider": "Udemy (Maximilian Schwarzmüller)",
+        "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
+        "skills_covered": [
+            "React",
+            "JavaScript",
+            "Redux",
+            "Next.js",
+            "TypeScript"
+        ],
+        "course_type": "paid",
+        "rating": 4.7,
+        "duration_hours": 65
+    },
+    {
+        "title": "Docker and Kubernetes: The Complete Guide",
+        "provider": "Udemy",
+        "url": "https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/",
+        "skills_covered": [
+            "Docker",
+            "Kubernetes",
+            "CI/CD"
+        ],
+        "course_type": "paid",
+        "rating": 4.8,
+        "duration_hours": 22
+    },
+    {
+        "title": "AWS Certified Cloud Practitioner",
+        "provider": "AWS",
+        "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/",
+        "skills_covered": [
+            "AWS",
+            "Amazon Web Services",
+            "Cloud Architecture"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 15
+    },
+    {
+        "title": "Google Data Analytics Certificate",
+        "provider": "Coursera (Google)",
+        "url": "https://www.coursera.org/professional-certificates/google-data-analytics",
+        "skills_covered": [
+            "Data Analytics",
+            "SQL",
+            "Data Visualization",
+            "Excel",
+            "Tableau"
+        ],
+        "course_type": "certification",
+        "rating": 4.8,
+        "duration_hours": 180
+    },
+    {
+        "title": "Intro to Machine Learning",
+        "provider": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+        "skills_covered": [
+            "Machine Learning",
+            "Python",
+            "scikit-learn"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 5
+    },
+    {
+        "title": "Pandas",
+        "provider": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn/pandas",
+        "skills_covered": [
+            "Pandas",
+            "Python",
+            "Data Analysis"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 4
+    },
+    {
+        "title": "Intermediate Machine Learning",
+        "provider": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn/intermediate-machine-learning",
+        "skills_covered": [
+            "Machine Learning",
+            "Feature Engineering",
+            "scikit-learn",
+            "XGBoost"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 4
+    },
+    {
+        "title": "Data Visualization",
+        "provider": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn/data-visualization",
+        "skills_covered": [
+            "Data Visualization",
+            "Python",
+            "Seaborn",
+            "Matplotlib"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 4
+    },
+    {
+        "title": "SQL Tutorial for Beginners",
+        "provider": "W3Schools / YouTube (Socratica)",
+        "url": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+        "skills_covered": [
+            "SQL",
+            "MySQL"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 3
+    },
+    {
+        "title": "Git and GitHub for Beginners",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "skills_covered": [
+            "Git",
+            "GitHub"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 1
+    },
+    {
+        "title": "NLP with Python",
+        "provider": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn/natural-language-processing",
+        "skills_covered": [
+            "Natural Language Processing",
+            "Python",
+            "Machine Learning"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 3
+    },
+    {
+        "title": "CS50: Introduction to Computer Science",
+        "provider": "Harvard / edX",
+        "url": "https://cs50.harvard.edu/x/",
+        "skills_covered": [
+            "Python",
+            "C",
+            "SQL",
+            "JavaScript",
+            "HTML5"
+        ],
+        "course_type": "free",
+        "rating": 4.9,
+        "duration_hours": 80
+    },
+    {
+        "title": "Full Stack Web Development with React",
+        "provider": "Coursera (Hong Kong University)",
+        "url": "https://www.coursera.org/specializations/full-stack-react",
+        "skills_covered": [
+            "React",
+            "Node.js",
+            "JavaScript",
+            "MongoDB",
+            "REST API"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 100
+    },
+    {
+        "title": "TensorFlow Developer Certificate",
+        "provider": "Coursera (DeepLearning.AI)",
+        "url": "https://www.coursera.org/professional-certificates/tensorflow-in-practice",
+        "skills_covered": [
+            "TensorFlow",
+            "Deep Learning",
+            "Python",
+            "CNN",
+            "NLP"
+        ],
+        "course_type": "certification",
+        "rating": 4.8,
+        "duration_hours": 60
+    },
+    {
+        "title": "PyTorch for Deep Learning",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=V_xro1bcAuA",
+        "skills_covered": [
+            "PyTorch",
+            "Deep Learning",
+            "Python"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 26
+    },
+    {
+        "title": "Hugging Face NLP Course",
+        "provider": "Hugging Face",
+        "url": "https://huggingface.co/learn/nlp-course",
+        "skills_covered": [
+            "Hugging Face",
+            "Transformers",
+            "Natural Language Processing",
+            "PyTorch",
+            "Large Language Models"
+        ],
+        "course_type": "free",
+        "rating": 4.9,
+        "duration_hours": 20
+    },
+    {
+        "title": "Linux Fundamentals",
+        "provider": "edX (Linux Foundation)",
+        "url": "https://www.edx.org/course/introduction-to-linux",
+        "skills_covered": [
+            "Linux",
+            "Bash",
+            "Shell"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 60
+    },
+    {
+        "title": "Docker Crash Course",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=pg19Z8LL06w",
+        "skills_covered": [
+            "Docker"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 2
+    },
+    {
+        "title": "Kubernetes for Beginners",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=d6WC5n9G_sM",
+        "skills_covered": [
+            "Kubernetes",
+            "Docker"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 4
+    },
+    {
+        "title": "TypeScript Full Course",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=30LWjhZzg50",
+        "skills_covered": [
+            "TypeScript",
+            "JavaScript"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 3
+    },
+    {
+        "title": "Django for Beginners",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=F5mRW0jo-U4",
+        "skills_covered": [
+            "Django",
+            "Python",
+            "SQL",
+            "REST API"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 2
+    },
+    {
+        "title": "FastAPI Full Course",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=0sOvCWFmrtA",
+        "skills_covered": [
+            "FastAPI",
+            "Python",
+            "REST API"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 2
+    },
+    {
+        "title": "PostgreSQL Tutorial",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=qw--VYLpxG4",
+        "skills_covered": [
+            "PostgreSQL",
+            "SQL",
+            "Database Design"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 3
+    },
+    {
+        "title": "Flutter & Dart - The Complete Guide",
+        "provider": "Udemy (Maximilian Schwarzmüller)",
+        "url": "https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/",
+        "skills_covered": [
+            "Flutter",
+            "Dart",
+            "Android",
+            "iOS",
+            "Firebase"
+        ],
+        "course_type": "paid",
+        "rating": 4.8,
+        "duration_hours": 42
+    },
+    {
+        "title": "Kotlin for Android Development",
+        "provider": "Google Developers / YouTube",
+        "url": "https://developer.android.com/courses/android-basics-kotlin/course",
+        "skills_covered": [
+            "Kotlin",
+            "Android",
+            "Jetpack Compose"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 15
+    },
+    {
+        "title": "AWS Cloud Practitioner Essentials",
+        "provider": "AWS Skill Builder",
+        "url": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/",
+        "skills_covered": [
+            "AWS",
+            "Amazon Web Services",
+            "Serverless",
+            "Lambda"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 6
+    },
+    {
+        "title": "Terraform on AWS",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=SLB_c_ayRMo",
+        "skills_covered": [
+            "Terraform",
+            "AWS",
+            "Infrastructure as Code"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 2
+    },
+    {
+        "title": "GitHub Actions CI/CD",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=R8_veQiYBjI",
+        "skills_covered": [
+            "GitHub Actions",
+            "CI/CD",
+            "Git"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 2
+    },
+    {
+        "title": "Figma for Beginners",
+        "provider": "Figma (YouTube official)",
+        "url": "https://www.youtube.com/playlist?list=PLXDU_eVOJTx7QHLShNqIXL1Cgbxj7HlN4",
+        "skills_covered": [
+            "Figma",
+            "UI Design",
+            "UX Design",
+            "Wireframing",
+            "Prototyping"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 4
+    },
+    {
+        "title": "Google UX Design Certificate",
+        "provider": "Coursera (Google)",
+        "url": "https://www.coursera.org/professional-certificates/google-ux-design",
+        "skills_covered": [
+            "UX Design",
+            "UI Design",
+            "User Research",
+            "Prototyping",
+            "Figma",
+            "Usability Testing"
+        ],
+        "course_type": "certification",
+        "rating": 4.8,
+        "duration_hours": 200
+    },
+    {
+        "title": "Scrum Master Certification Prep",
+        "provider": "Coursera (LearnQuest)",
+        "url": "https://www.coursera.org/learn/scrum-master-certification",
+        "skills_covered": [
+            "Scrum",
+            "Agile",
+            "Project Management"
+        ],
+        "course_type": "free",
+        "rating": 4.5,
+        "duration_hours": 12
+    },
+    {
+        "title": "Apache Spark with Python (PySpark)",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=_C8kWso4ne4",
+        "skills_covered": [
+            "Apache Spark",
+            "Python",
+            "Big Data",
+            "Data Pipeline"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 2
+    },
+    {
+        "title": "Apache Kafka for Beginners",
+        "provider": "Udemy (Stephane Maarek)",
+        "url": "https://www.udemy.com/course/apache-kafka/",
+        "skills_covered": [
+            "Apache Kafka",
+            "Data Pipeline",
+            "Data Engineering"
+        ],
+        "course_type": "paid",
+        "rating": 4.8,
+        "duration_hours": 15
+    },
+    {
+        "title": "Cybersecurity Fundamentals",
+        "provider": "edX (IBM)",
+        "url": "https://www.edx.org/course/cybersecurity-fundamentals",
+        "skills_covered": [
+            "Cybersecurity",
+            "Network Security",
+            "Cryptography"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 30
+    },
+    {
+        "title": "Ethical Hacking Full Course",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=3Kq1MIfTWCE",
+        "skills_covered": [
+            "Ethical Hacking",
+            "Penetration Testing",
+            "Cybersecurity",
+            "OWASP"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 15
+    },
+    {
+        "title": "Statistics for Data Science",
+        "provider": "Coursera (Duke University)",
+        "url": "https://www.coursera.org/specializations/statistics",
+        "skills_covered": [
+            "Statistics",
+            "Probability",
+            "Data Analysis",
+            "R"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 80
+    },
+    {
+        "title": "MongoDB Basics",
+        "provider": "MongoDB University",
+        "url": "https://learn.mongodb.com/learning-paths/mongodb-python-developer-path",
+        "skills_covered": [
+            "MongoDB",
+            "Database Design"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 8
+    },
+    {
+        "title": "Redis University",
+        "provider": "Redis",
+        "url": "https://university.redis.com/",
+        "skills_covered": [
+            "Redis",
+            "Database Design"
+        ],
+        "course_type": "free",
+        "rating": 4.6,
+        "duration_hours": 10
+    },
+    {
+        "title": "Node.js Crash Course",
+        "provider": "Traversy Media (YouTube)",
+        "url": "https://www.youtube.com/watch?v=fBNz5xF-Kx4",
+        "skills_covered": [
+            "Node.js",
+            "JavaScript",
+            "REST API"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 2
+    },
+    {
+        "title": "Next.js Full Course",
+        "provider": "freeCodeCamp (YouTube)",
+        "url": "https://www.youtube.com/watch?v=wm5gMKuwSYk",
+        "skills_covered": [
+            "Next.js",
+            "React",
+            "JavaScript",
+            "TypeScript"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 4
+    },
+    {
+        "title": "dbt (Data Build Tool) Fundamentals",
+        "provider": "dbt Learn",
+        "url": "https://learn.getdbt.com/courses/dbt-fundamentals",
+        "skills_covered": [
+            "dbt",
+            "SQL",
+            "Data Engineering",
+            "Data Pipeline"
+        ],
+        "course_type": "free",
+        "rating": 4.8,
+        "duration_hours": 5
+    },
+    {
+        "title": "Tableau Public Training",
+        "provider": "Tableau (Official)",
+        "url": "https://www.tableau.com/learn/training",
+        "skills_covered": [
+            "Tableau",
+            "Data Visualization",
+            "Business Intelligence"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 10
+    },
+    {
+        "title": "Power BI for Beginners",
+        "provider": "Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/training/powerplatform/power-bi",
+        "skills_covered": [
+            "Power BI",
+            "Data Visualization",
+            "Business Intelligence"
+        ],
+        "course_type": "free",
+        "rating": 4.7,
+        "duration_hours": 8
+    }
+]

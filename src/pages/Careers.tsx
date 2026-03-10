@@ -4,63 +4,8 @@ import { Briefcase, MapPin, Clock, DollarSign, Building2, ExternalLink, Brain } 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const opportunities = [
-    {
-        id: 1,
-        title: "Frontend Developer Intern",
-        company: "TechCorp Inc.",
-        location: "Remote",
-        type: "Internship",
-        salary: "$25/hr",
-        posted: "2 days ago",
-        matchScore: 95,
-        skills: ["React", "TypeScript", "CSS"],
-    },
-    {
-        id: 2,
-        title: "Junior Software Engineer",
-        company: "InnovateSoft",
-        location: "New York, NY",
-        type: "Full-time",
-        salary: "$85,000/yr",
-        posted: "1 week ago",
-        matchScore: 88,
-        skills: ["Python", "Django", "PostgreSQL"],
-    },
-    {
-        id: 3,
-        title: "Data Analyst Co-op",
-        company: "DataDriven Labs",
-        location: "San Francisco, CA",
-        type: "Co-op",
-        salary: "$30/hr",
-        posted: "3 days ago",
-        matchScore: 82,
-        skills: ["SQL", "Python", "Tableau"],
-    },
-    {
-        id: 4,
-        title: "UX Research Intern",
-        company: "DesignFlow Studio",
-        location: "Remote",
-        type: "Internship",
-        salary: "$22/hr",
-        posted: "5 days ago",
-        matchScore: 76,
-        skills: ["Figma", "User Research", "Wireframing"],
-    },
-    {
-        id: 5,
-        title: "Cloud Engineering Intern",
-        company: "CloudScale Systems",
-        location: "Austin, TX",
-        type: "Internship",
-        salary: "$28/hr",
-        posted: "1 day ago",
-        matchScore: 91,
-        skills: ["AWS", "Docker", "Kubernetes"],
-    },
-];
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 function getMatchColor(score: number) {
     if (score >= 90) return "text-metric-green bg-metric-green/10";
@@ -69,6 +14,38 @@ function getMatchColor(score: number) {
 }
 
 const Careers = () => {
+    const { data: opportunities, isLoading } = useQuery({
+        queryKey: ["career-opportunities"],
+        queryFn: async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            const headers = { Authorization: `Bearer ${session?.access_token}` };
+
+            // 1. Fetch jobs
+            const jobsRes = await fetch("/api/jobs", { headers });
+            if (!jobsRes.ok) throw new Error("Failed to fetch jobs");
+            const { jobs } = await jobsRes.json();
+
+            // 2. Fetch match scores for each job in parallel
+            const jobsWithScores = await Promise.all(
+                jobs.map(async (job: any) => {
+                    try {
+                        const scoreRes = await fetch(`/api/skills/match-score/${job.id}`, { headers });
+                        if (scoreRes.ok) {
+                            const scoreData = await scoreRes.json();
+                            return { ...job, matchScore: scoreData.match_score };
+                        }
+                    } catch (e) {
+                        console.error("Failed to fetch score for job", job.id);
+                    }
+                    return { ...job, matchScore: 0 };
+                })
+            );
+
+            // Sort by match score descending
+            return jobsWithScores.sort((a, b) => b.matchScore - a.matchScore);
+        }
+    });
+
     return (
         <div className="min-h-screen bg-background">
             <DashboardSidebar />
@@ -87,7 +64,9 @@ const Careers = () => {
                     </div>
 
                     <div className="space-y-4">
-                        {opportunities.map((job) => (
+                        {isLoading ? (
+                            <div className="text-center py-10 text-muted-foreground animate-pulse">Loading AI matches...</div>
+                        ) : opportunities?.map((job: any) => (
                             <div
                                 key={job.id}
                                 className="rounded-xl bg-card p-5 card-shadow hover:card-shadow-hover transition-all duration-300 group"
@@ -102,25 +81,29 @@ const Careers = () => {
                                                 <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                                                     {job.title}
                                                 </h3>
-                                                <p className="text-sm text-muted-foreground">{job.company}</p>
+                                                <p className="text-sm text-muted-foreground">{job.company || job.department || "Company"}</p>
                                             </div>
                                         </div>
                                         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-3">
                                             <span className="flex items-center gap-1">
-                                                <MapPin className="h-4 w-4" /> {job.location}
+                                                <MapPin className="h-4 w-4" /> {job.location || "Remote"}
                                             </span>
                                             <span className="flex items-center gap-1">
-                                                <Briefcase className="h-4 w-4" /> {job.type}
+                                                <Briefcase className="h-4 w-4" /> {job.type || "Full-time"}
                                             </span>
+                                            {(job.salary_min || job.salary_max) && (
+                                                <span className="flex items-center gap-1">
+                                                    <DollarSign className="h-4 w-4" />
+                                                    {job.salary_min ? `$${(job.salary_min / 1000).toFixed(0)}k` : ""}
+                                                    {job.salary_max ? ` - $${(job.salary_max / 1000).toFixed(0)}k` : ""}
+                                                </span>
+                                            )}
                                             <span className="flex items-center gap-1">
-                                                <DollarSign className="h-4 w-4" /> {job.salary}
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <Clock className="h-4 w-4" /> {job.posted}
+                                                <Clock className="h-4 w-4" /> {new Date(job.created_at || Date.now()).toLocaleDateString()}
                                             </span>
                                         </div>
                                         <div className="flex flex-wrap gap-2 mt-3">
-                                            {job.skills.map((skill) => (
+                                            {(job.required_skills || []).map((skill: string) => (
                                                 <span
                                                     key={skill}
                                                     className="px-2 py-1 rounded-md bg-accent text-xs font-medium text-accent-foreground"

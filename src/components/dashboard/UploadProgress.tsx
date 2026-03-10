@@ -2,6 +2,7 @@ import { Upload, FileText, Award, FolderOpen, File, CheckCircle, XCircle, Loader
 import { cn } from "@/lib/utils";
 import { useState, useRef, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface UploadedFile {
   id: string;
@@ -25,8 +26,8 @@ export function UploadProgress() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
-  const simulateUpload = useCallback(
-    (file: File) => {
+  const uploadFileToServer = useCallback(
+    async (file: File) => {
       const uploadFile: UploadedFile = {
         id: Math.random().toString(36).slice(2),
         name: file.name,
@@ -38,38 +39,69 @@ export function UploadProgress() {
 
       setFiles((prev) => [uploadFile, ...prev]);
 
-      let progress = 0;
-      const interval = setInterval(() => {
-        progress += Math.random() * 30;
-        if (progress >= 100) {
-          progress = 100;
-          clearInterval(interval);
-          setFiles((prev) =>
-            prev.map((f) =>
-              f.id === uploadFile.id ? { ...f, progress: 100, status: "success" } : f
-            )
-          );
-          toast({
-            title: "Upload complete",
-            description: `${file.name} uploaded successfully.`,
-          });
-        } else {
-          setFiles((prev) =>
-            prev.map((f) =>
-              f.id === uploadFile.id ? { ...f, progress: Math.min(progress, 95) } : f
-            )
-          );
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        const formData = new FormData();
+        formData.append("file", file);
+
+        // Fake progress since fetch doesn't support upload progress out of the box easily
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+          progress += Math.random() * 20;
+          if (progress < 90) {
+            setFiles((prev) =>
+              prev.map((f) => (f.id === uploadFile.id ? { ...f, progress } : f))
+            );
+          }
+        }, 500);
+
+        const res = await fetch("/api/student/resume/upload", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${session?.access_token}`,
+          },
+          body: formData,
+        });
+
+        clearInterval(progressInterval);
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.detail || "Upload failed");
         }
-      }, 500);
+
+        const data = await res.json();
+
+        setFiles((prev) =>
+          prev.map((f) =>
+            f.id === uploadFile.id ? { ...f, progress: 100, status: "success" } : f
+          )
+        );
+        toast({
+          title: "Setup Complete",
+          description: `Extracted ${data.skills_extracted || 0} skills from ${file.name}`,
+        });
+      } catch (error: any) {
+        setFiles((prev) =>
+          prev.map((f) =>
+            f.id === uploadFile.id ? { ...f, status: "error" } : f
+          )
+        );
+        toast({
+          title: "Upload Failed",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
     },
     [toast]
   );
 
   const handleFiles = useCallback(
     (fileList: FileList) => {
-      Array.from(fileList).forEach((file) => simulateUpload(file));
+      Array.from(fileList).forEach((file) => uploadFileToServer(file));
     },
-    [simulateUpload]
+    [uploadFileToServer]
   );
 
   const handleDrop = useCallback(

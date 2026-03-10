@@ -13,6 +13,7 @@ import Events from "./pages/Events";
 import Careers from "./pages/Careers";
 import Settings from "./pages/Settings";
 import AIAnalysis from "./pages/AIAnalysis";
+import SkillQuiz from "./pages/SkillQuiz";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,14 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route
+              path="/onboarding"
+              element={
+                <ProtectedRoute>
+                  <SkillQuiz />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/dashboard"
               element={

@@ -249,3 +249,326 @@
     transform: none !important;
   }
 }
+
+/* ── QUIZ STYLES ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap');
+
+.quiz-root {
+  min-height: 100vh;
+  background: #0D0F14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.quiz-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(212, 168, 83, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 90%, rgba(0, 201, 167, 0.05) 0%, transparent 60%),
+    #0D0F14;
+  animation: bgShift 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes bgShift {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(15deg);
+  }
+}
+
+.quiz-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 100;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #D4A853, #00C9A7);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz-stage {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.quiz-stage--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.quiz-step-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #D4A853;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.quiz-heading {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.quiz-sub {
+  font-size: 0.95rem;
+  color: #94A3B8;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.role-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.role-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(212, 168, 83, 0.4);
+  transform: translateY(-2px);
+}
+
+.role-card--active {
+  background: rgba(212, 168, 83, 0.08);
+  border-color: #D4A853;
+}
+
+.role-icon {
+  font-size: 1.5rem;
+}
+
+.role-label {
+  font-size: 0.9rem;
+  color: #E2E8F0;
+  font-weight: 500;
+}
+
+.quiz-slider {
+  width: 100%;
+  accent-color: #D4A853;
+  height: 6px;
+  margin-bottom: 1rem;
+}
+
+.slider-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.slider-value {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 2.5rem;
+  color: #D4A853;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.skill-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+}
+
+.skill-chip {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #CBD5E1;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.skill-chip:hover {
+  border-color: rgba(212, 168, 83, 0.5);
+  color: #F1F5F9;
+}
+
+.skill-chip--active {
+  background: rgba(212, 168, 83, 0.15);
+  border-color: #D4A853;
+  color: #D4A853;
+  font-weight: 600;
+}
+
+.chip-check {
+  margin-left: 4px;
+}
+
+.quiz-selected-count {
+  font-size: 0.8rem;
+  color: #64748B;
+  margin-bottom: 2rem;
+}
+
+.mcq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.mcq-item {}
+
+.mcq-question {
+  font-size: 1rem;
+  color: #F1F5F9;
+  font-weight: 500;
+  margin-bottom: 0.875rem;
+  line-height: 1.5;
+}
+
+.mcq-num {
+  display: inline-block;
+  color: #D4A853;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  font-family: 'Clash Display', sans-serif;
+}
+
+.mcq-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mcq-option {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #94A3B8;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.mcq-option:hover {
+  border-color: rgba(212, 168, 83, 0.3);
+  color: #E2E8F0;
+}
+
+.mcq-option--selected {
+  border-color: #D4A853;
+  background: rgba(212, 168, 83, 0.1);
+  color: #FFFFFF;
+}
+
+.mcq-letter {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #D4A853;
+  flex-shrink: 0;
+}
+
+.quiz-cta {
+  background: #D4A853;
+  color: #0D0F14;
+  font-weight: 700;
+  padding: 0.875rem 2.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.quiz-cta:hover:not(:disabled) {
+  background: #E8BC6A;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(212, 168, 83, 0.25);
+}
+
+.quiz-cta:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.analyzer-pulse {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #D4A853;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.done-checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(0, 201, 167, 0.15);
+  border: 2px solid #00C9A7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #00C9A7;
+  margin-bottom: 1.5rem;
+}

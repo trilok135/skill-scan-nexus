@@ -69,6 +69,21 @@ export function ProtectedRoute({ children }: { children: ReactNode }) {
     useEffect(() => {
         if (!loading && !user) {
             navigate("/login", { replace: true });
+        } else if (!loading && user) {
+            // Check onboarding status for authenticated users
+            // @ts-ignore - Supabase types might not be fully synced yet
+            supabase
+                .from('students')
+                .select('onboarding_complete')
+                .eq('user_id', user.id)
+                .single()
+                .then(({ data, error }: { data: any, error: any }) => {
+                    // Don't redirect if we are already on onboarding path, prevent infinite loops
+                    const isCurrentlyOnboarding = window.location.pathname === '/onboarding';
+                    if (!error && data && !data.onboarding_complete && !isCurrentlyOnboarding) {
+                        navigate('/onboarding', { replace: true });
+                    }
+                });
         }
     }, [user, loading, navigate]);
 

@@ -19,6 +19,7 @@ from routers.skills import router as skills_router
 from routers.jobs import router as jobs_router
 from routers.recommendations import router as recommendations_router
 from routers.hr import router as hr_router
+from routers.onboarding import router as onboarding_router
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s  %(name)s  %(message)s")
 logger = logging.getLogger(__name__)
@@ -105,7 +106,7 @@ app.include_router(skills_router)
 app.include_router(jobs_router)
 app.include_router(recommendations_router)
 app.include_router(hr_router)
-
+app.include_router(onboarding_router)
 
 # ─── Root ────────────────────────────────────────────────────────────────
 @app.get("/", tags=["Health"])

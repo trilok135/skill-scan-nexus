@@ -1,72 +1,90 @@
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
+import resumeData from "../src/data/sample-resume.json" assert { type: "json" };
 
 dotenv.config();
 
 const supabaseUrl = process.env.VITE_SUPABASE_URL || "";
-const supabaseKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY || "";
+const supabaseKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY || process.env.VITE_SUPABASE_ANON_KEY || "";
+
+if (!supabaseUrl || !supabaseKey) {
+    console.error("❌ Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY in .env file");
+    process.exit(1);
+}
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-async function seedUser() {
-    console.log("🚀 Seeding user: thrilokrajakeerthi@gmail.com");
+const USER_EMAIL = "thrilokrajakeerthi@gmail.com";
+const USER_PASSWORD = "1234567890";
 
+async function seedUser() {
+    console.log("🚀 Seeding user:", USER_EMAIL);
+
+    // Try sign up first
     let { data, error } = await supabase.auth.signUp({
-        email: "thrilokrajakeerthi@gmail.com",
-        password: "1234567890",
+        email: USER_EMAIL,
+        password: USER_PASSWORD,
         options: {
             data: {
-                full_name: "Thrilok Raja Keerthi",
+                full_name: resumeData.name,
                 role: "student",
             },
         },
     });
 
+    // If already registered, sign in instead
     if (error && error.message.includes("already registered")) {
-        console.log("🔄 User already exists — logging in to seed data...");
+        console.log("🔄 User already exists — signing in to seed data...");
         const signin = await supabase.auth.signInWithPassword({
-            email: "thrilokrajakeerthi@gmail.com",
-            password: "1234567890",
+            email: USER_EMAIL,
+            password: USER_PASSWORD,
         });
         data = signin.data;
         error = signin.error;
     }
 
     if (error) {
-        console.error("❌ Error authenticating user:", error.message);
+        console.error("❌ Auth error:", error.message);
         process.exit(1);
-    } else {
-        console.log("✅ User authenticated successfully!");
-        console.log("   ID:", data.user?.id);
-        console.log("   Email:", data.user?.email);
-
-        // Seed the profile with a sample resume
-        const sampleSkills = [
-            { skill_name: "React", proficiency: "advanced", source: "resume" },
-            { skill_name: "TypeScript", proficiency: "intermediate", source: "resume" },
-            { skill_name: "Python", proficiency: "advanced", source: "resume" },
-            { skill_name: "FastAPI", proficiency: "advanced", source: "resume" },
-            { skill_name: "Machine Learning", proficiency: "beginner", source: "resume" }
-        ];
-
-        const { error: profileError } = await supabase.from("profiles").update({
-            extracted_skills: sampleSkills,
-            resume_text: "Sample Resume: Experienced Full Stack Engineer specializing in React and Python (FastAPI). Passionate about building highly scalable systems and seamless UIs. Familiar with basic Machine Learning concepts and looking for a software engineering role.",
-            resume_url: "https://example.com/sample-resume.pdf",
-            full_name: "Thrilok Raja Keerthi"
-        }).eq("id", data.user?.id);
-
-        if (profileError) {
-            console.error("❌ Error seeding resume data to profile:", profileError.message);
-        } else {
-            console.log("✅ Sample resume and skills successfully seeded into database!");
-        }
     }
 
-    console.log("\n📧 Email confirmation:");
-    console.log("   If 'Confirm email' is ON in Supabase Dashboard,");
-    console.log("   the user will receive a confirmation email at thrilokrajakeerthi@gmail.com");
-    console.log("\n   To enable: Supabase Dashboard → Auth → Providers → Email → Confirm email");
+    const userId = data.user?.id;
+    if (!userId) {
+        console.error("❌ Could not retrieve user ID");
+        process.exit(1);
+    }
+
+    console.log("✅ Authenticated as:", data.user?.email);
+    console.log("   User ID:", userId);
+
+    // Upsert the profile with real resume data
+    const { error: profileError } = await supabase
+        .from("profiles")
+        .update({
+            full_name: resumeData.name,
+            extracted_skills: resumeData.extracted_skills,
+            resume_text: resumeData.resume_text,
+            resume_url: "https://example.com/trilok-resume.pdf",
+            experience: resumeData.experience,
+            education: resumeData.education,
+            projects: resumeData.projects,
+            last_updated: new Date().toISOString(),
+        })
+        .eq("id", userId);
+
+    if (profileError) {
+        console.error("❌ Error seeding profile:", profileError.message);
+        process.exit(1);
+    }
+
+    console.log("\n✅ Resume data seeded successfully!");
+    console.log(`   Skills: ${resumeData.extracted_skills.map((s: any) => s.skill_name).join(", ")}`);
+    console.log(`   Experience: ${resumeData.experience.length} entries`);
+    console.log(`   Projects: ${resumeData.projects.length} entries`);
+    console.log("\n🎯 Login with:");
+    console.log(`   Email:    ${USER_EMAIL}`);
+    console.log(`   Password: ${USER_PASSWORD}`);
+    console.log("\n   Dashboard will show all skills and resume data immediately after login.");
 }
 
 seedUser();
