@@ -11,7 +11,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 async function seedUser() {
     console.log("🚀 Seeding user: thrilokrajakeerthi@gmail.com");
 
-    const { data, error } = await supabase.auth.signUp({
+    let { data, error } = await supabase.auth.signUp({
         email: "thrilokrajakeerthi@gmail.com",
         password: "1234567890",
         options: {
@@ -22,18 +22,45 @@ async function seedUser() {
         },
     });
 
+    if (error && error.message.includes("already registered")) {
+        console.log("🔄 User already exists — logging in to seed data...");
+        const signin = await supabase.auth.signInWithPassword({
+            email: "thrilokrajakeerthi@gmail.com",
+            password: "1234567890",
+        });
+        data = signin.data;
+        error = signin.error;
+    }
+
     if (error) {
-        if (error.message.includes("already registered")) {
-            console.log("✅ User already exists — no action needed.");
-        } else {
-            console.error("❌ Error creating user:", error.message);
-            process.exit(1);
-        }
+        console.error("❌ Error authenticating user:", error.message);
+        process.exit(1);
     } else {
-        console.log("✅ User created successfully!");
+        console.log("✅ User authenticated successfully!");
         console.log("   ID:", data.user?.id);
         console.log("   Email:", data.user?.email);
-        console.log("   Confirmed:", data.user?.email_confirmed_at ? "Yes" : "No (check email)");
+
+        // Seed the profile with a sample resume
+        const sampleSkills = [
+            { skill_name: "React", proficiency: "advanced", source: "resume" },
+            { skill_name: "TypeScript", proficiency: "intermediate", source: "resume" },
+            { skill_name: "Python", proficiency: "advanced", source: "resume" },
+            { skill_name: "FastAPI", proficiency: "advanced", source: "resume" },
+            { skill_name: "Machine Learning", proficiency: "beginner", source: "resume" }
+        ];
+
+        const { error: profileError } = await supabase.from("profiles").update({
+            extracted_skills: sampleSkills,
+            resume_text: "Sample Resume: Experienced Full Stack Engineer specializing in React and Python (FastAPI). Passionate about building highly scalable systems and seamless UIs. Familiar with basic Machine Learning concepts and looking for a software engineering role.",
+            resume_url: "https://example.com/sample-resume.pdf",
+            full_name: "Thrilok Raja Keerthi"
+        }).eq("id", data.user?.id);
+
+        if (profileError) {
+            console.error("❌ Error seeding resume data to profile:", profileError.message);
+        } else {
+            console.log("✅ Sample resume and skills successfully seeded into database!");
+        }
     }
 
     console.log("\n📧 Email confirmation:");
